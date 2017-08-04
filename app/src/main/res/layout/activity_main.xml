@@ -7,6 +7,7 @@
     tools:context="com.christhiansalas.gatoapp.MainActivity">
 
     <TextView
+        android:id="@+id/tv_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Juguemos "
@@ -17,7 +18,47 @@
         android:layout_centerHorizontal="true"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="1dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/tv_1"
+        android:layout_marginTop="22dp"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:id="@+id/rb_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Humano"
+            android:textSize="15sp"
+            />
+
+        <RadioButton
+            android:id="@+id/rb_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maquina"
+            android:textSize="15sp"
+
+            />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/rg"
+        android:layout_below="@+id/tv_1"
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="8dp"
+        android:layout_centerHorizontal="true"
+        android:text="Reset"
+
         />
 
     <Button
@@ -103,5 +144,29 @@
         android:layout_below="@+id/btn_5"
         android:layout_toRightOf="@+id/btn_5"
         />
+
+
+    <TextView
+        android:id="@+id/tv_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_7"
+        android:text="1 Jugador: "
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_9"
+        android:text="2 Jugador: "
+        android:layout_toRightOf="@+id/tv_2"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="90dp"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
