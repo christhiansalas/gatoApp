@@ -4,27 +4,31 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9;
+
     int turno = 1;
+
+    Random random;
+
+    boolean fin_juego = false;
 
     //turno = 1 entonces TIRAN LAS X // turno = 2 entonces tiran los circulos+
 
-
     int[][] gato = new int [3][3];
-
     // gato = 0 Vacio
     // gato = 1 X
     // gato = 2 y
 
-
     AlertDialog.Builder alertBuilder;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             for (int j = 0; j < 3; j++)
                 gato[i][j]=0;
 
+        random = new Random();
+
+        for (int x=0; x < 20; x++)
+        Log.i("Random ", ""+random.nextInt(10));
+
+
     }
 
     @Override
@@ -73,19 +83,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         btn_1.setText("X");
                         turno = 2;
                         gato[0][0] = 1;
-
                         checarGanador(1);
-
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
                     else
                     {
                         btn_1.setText("0");
                         turno = 1;
                         gato[0][0] = 2;
-
                         checarGanador(2);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
-
                 }
                 else
                 {
@@ -100,9 +110,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         btn_2.setText("X");
                         turno = 2;
                         gato[0][1] = 1;
-
                         checarGanador(1);
-
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
                     else
                     {
@@ -110,27 +120,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 1;
                         gato[0][1] = 2;
                         checarGanador(2);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
-
-
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "Lugar ya jugado", Toast.LENGTH_LONG).show();
                 }
-
-
                 break;
 
             case R.id.btn_3:
                 if (gato[0][2] ==0)
                 {
-
                     if (turno == 1) {
                         btn_3.setText("X");
                         turno = 2;
                         gato[0][2] = 1;
                         checarGanador(1);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
                     else
                     {
@@ -138,26 +147,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 1;
                         gato[0][2] = 2;
                         checarGanador(2);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
-
-
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "Lugar ya jugado", Toast.LENGTH_LONG).show();
                 }
-
                 break;
 
             case R.id.btn_4:
                 if (gato[1][0] ==0)
                 {
-
                     if (turno == 1) {
                         btn_4.setText("X");
                         turno = 2;
                         gato[1][0] = 1;
                         checarGanador(1);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
                     else
                     {
@@ -165,9 +174,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 1;
                         gato[1][0] = 2;
                         checarGanador(2);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
-
-
                 }
                 else
                 {
@@ -184,6 +193,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 2;
                         gato[1][1] = 1;
                         checarGanador(1);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
                     else
                     {
@@ -191,28 +202,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 1;
                         gato[1][1] = 2;
                         checarGanador(2);
-
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
-
-
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "Lugar ya jugado", Toast.LENGTH_LONG).show();
                 }
-
-
                 break;
 
             case R.id.btn_6:
                 if (gato[1][2] ==0)
                 {
-
                     if (turno == 1) {
                         btn_6.setText("X");
                         turno = 2;
                         gato[1][2] = 1;
                         checarGanador(1);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
                     else
                     {
@@ -220,15 +229,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 1;
                         gato[1][2] = 2;
                         checarGanador(2);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
-
-
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "Lugar ya jugado", Toast.LENGTH_LONG).show();
                 }
-
                 break;
 
             case R.id.btn_7:
@@ -239,6 +247,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 2;
                         gato[2][0] = 1;
                         checarGanador(1);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
                     else
                     {
@@ -246,26 +256,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 1;
                         gato[2][0] = 2;
                         checarGanador(2);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
-
-
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "Lugar ya jugado", Toast.LENGTH_LONG).show();
                 }
-
                 break;
 
             case R.id.btn_8:
                 if (gato[2][1] ==0)
                 {
-
                     if (turno == 1) {
                         btn_8.setText("X");
                         turno = 2;
                         gato[2][1] = 1;
                         checarGanador(1);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
                     else
                     {
@@ -273,26 +283,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 1;
                         gato[2][1] = 2;
                         checarGanador(2);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
-
-
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "Lugar ya jugado", Toast.LENGTH_LONG).show();
                 }
-
                 break;
 
             case R.id.btn_9:
                 if (gato[2][2] ==0)
                 {
-
                     if (turno == 1) {
                         btn_9.setText("X");
                         turno = 2;
                         gato[2][2] = 1;
                         checarGanador(1);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
                     else
                     {
@@ -300,8 +310,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         turno = 1;
                         gato[2][2] = 2;
                         checarGanador(2);
+                        if(!fin_juego)
+                            jugarMaquina();
                     }
-
                 }
                 else
                 {
@@ -312,7 +323,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void checarGanador(int turno)
+
     {
+        Log.i("Gato ", ""+gato[0][0]+ "-"+gato[0][1]+"-"+gato[0][2]);
+        Log.i("Gato ", ""+gato[1][0]+ "-"+gato[1][1]+"-"+gato[1][2]);
+        Log.i("Gato ", ""+gato[2][0]+ "-"+gato[2][1]+"-"+gato[2][2]);
+        Log.i("Gato ", "------------------------------------------");
+
+
         if((gato[0][0] == turno && gato[0][1] == turno && gato[0][2]== turno) ||
                 (gato[1][0] == turno && gato[1][1] == turno && gato[1][2] == turno) ||
                 (gato[2][0] == turno && gato[2][1] == turno && gato[2][2] == turno) ||
@@ -322,6 +340,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 (gato[0][0] == turno && gato[1][1] == turno && gato[2][2] == turno) ||
                 (gato[2][0] == turno && gato[1][1] == turno && gato[0][2] == turno))
         {
+            fin_juego = true;
             String ganador = (turno == 1) ? "X" : "O";
             alertBuilder
                     .setTitle("Termino el juego")
@@ -345,6 +364,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             btn_8.setText("");
                             btn_9.setText("");
 
+                            fin_juego = false;
                         }
                     })
                     .setNegativeButton("Salir ", new DialogInterface.OnClickListener() {
@@ -384,6 +404,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 btn_8.setText("");
                                 btn_9.setText("");
 
+                                fin_juego = false;
                             }
                         })
                         .setNegativeButton("Salir ", new DialogInterface.OnClickListener() {
@@ -399,4 +420,196 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void jugarMaquina()
+    {
+
+        if (!(gato[0][0] != 0 && gato[0][1] != 0 &&
+                gato[0][2] != 0 && gato[1][0] != 0 &&
+                gato[1][1] != 0 && gato[1][2] != 0 &&
+                gato[2][0] != 0 && gato[2][1] != 0 &&
+                gato[2][2] != 0))
+        {
+            int var_while;
+            int var_x;
+            int var_y;
+
+            do {
+                var_x = random.nextInt(3);
+                var_y = random.nextInt(3);
+
+                var_while = gato[var_x][var_y];
+
+            } while (var_while != 0);
+
+            if (var_x == 0 && var_y == 0)
+            {
+                if (turno == 1)
+                {
+                    btn_1.setText("X");
+                    turno = 2;
+                    gato[0][0] = 1;
+                    checarGanador(1);
+                }
+                else
+                {
+                    btn_1.setText("0");
+                    turno = 1;
+                    gato[0][0] = 2;
+                    checarGanador(2);
+                }
+            }
+
+            if (var_x == 0 && var_y == 1)
+            {
+                {
+                    if (turno == 1) {
+                        btn_2.setText("X");
+                        turno = 2;
+                        gato[0][1] = 1;
+
+                        checarGanador(1);
+
+                    } else {
+                        btn_2.setText("0");
+                        turno = 1;
+                        gato[0][1] = 2;
+                        checarGanador(2);
+                    }
+                }
+            }
+
+            if (var_x == 0 && var_y == 2)
+            {
+                {
+                    if (turno == 1) {
+                        btn_3.setText("X");
+                        turno = 2;
+                        gato[0][2] = 1;
+
+                        checarGanador(1);
+
+                    } else {
+                        btn_3.setText("0");
+                        turno = 1;
+                        gato[0][2] = 2;
+                        checarGanador(2);
+                    }
+                }
+            }
+
+            if (var_x == 1 && var_y == 0)
+            {
+                {
+                    if (turno == 1) {
+                        btn_4.setText("X");
+                        turno = 2;
+                        gato[1][0] = 1;
+
+                        checarGanador(1);
+
+                    } else {
+                        btn_4.setText("0");
+                        turno = 1;
+                        gato[1][0] = 2;
+                        checarGanador(2);
+                    }
+                }
+            }
+
+            if (var_x == 1 && var_y == 1)
+            {
+                {
+                    if (turno == 1) {
+                        btn_5.setText("X");
+                        turno = 2;
+                        gato[1][1] = 1;
+
+                        checarGanador(1);
+
+                    } else {
+                        btn_5.setText("0");
+                        turno = 1;
+                        gato[1][1] = 2;
+                        checarGanador(2);
+                    }
+                }
+            }
+
+            if (var_x == 1 && var_y == 2)
+            {
+                {
+                    if (turno == 1) {
+                        btn_6.setText("X");
+                        turno = 2;
+                        gato[1][2] = 1;
+
+                        checarGanador(1);
+
+                    } else {
+                        btn_6.setText("0");
+                        turno = 1;
+                        gato[1][2] = 2;
+                        checarGanador(2);
+                    }
+                }
+            }
+
+            if (var_x == 2 && var_y == 0)
+            {
+                {
+                    if (turno == 1) {
+                        btn_7.setText("X");
+                        turno = 2;
+                        gato[2][0] = 1;
+
+                        checarGanador(1);
+
+                    } else {
+                        btn_7.setText("0");
+                        turno = 1;
+                        gato[2][0] = 2;
+                        checarGanador(2);
+                    }
+                }
+            }
+
+            if (var_x == 2 && var_y == 1)
+            {
+                {
+                    if (turno == 1) {
+                        btn_8.setText("X");
+                        turno = 2;
+                        gato[2][1] = 1;
+
+                        checarGanador(1);
+
+                    } else {
+                        btn_8.setText("0");
+                        turno = 1;
+                        gato[2][1] = 2;
+                        checarGanador(2);
+                    }
+                }
+            }
+
+            if (var_x == 2 && var_y == 2)
+            {
+                {
+                    if (turno == 1) {
+                        btn_9.setText("X");
+                        turno = 2;
+                        gato[2][2] = 1;
+
+                        checarGanador(1);
+
+                    } else {
+                        btn_9.setText("0");
+                        turno = 1;
+                        gato[2][2] = 2;
+                        checarGanador(2);
+                    }
+                }
+            }
+        }
+    }
 }
