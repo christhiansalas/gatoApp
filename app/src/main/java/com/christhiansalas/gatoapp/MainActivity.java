@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+
+        // BUTONES INACTIVOS
         rb_1.setEnabled(false);
         rb_2.setEnabled(false);
             switch (v.getId()) {
